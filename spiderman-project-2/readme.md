@@ -1,3 +1,6 @@
+** UPDATE-
+Added that we can move spiderman left or right using the keyboard controls, added another uniform variable :p have fun !!
+
 Here I can control the transparency level for the two textures using my keyboard (using uniforms)- 
 
 In the fragment shader-->
