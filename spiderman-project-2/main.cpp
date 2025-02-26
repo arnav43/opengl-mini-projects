@@ -13,6 +13,7 @@ void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 void processInput(GLFWwindow* window);
 
 float mixValue = 0.50f;
+float scaleValue = 1.00f;
 
 // settings
 const unsigned int SCR_WIDTH = 800;
@@ -192,6 +193,9 @@ int main()
         int mixlocation = glGetUniformLocation(ourShader.ID, "mixValue");
         glUniform1f(mixlocation, mixValue);
 
+        int scalelocation = glGetUniformLocation(ourShader.ID, "scaleFactor");
+        glUniform1f(scalelocation, scaleValue);
+
         glBindVertexArray(VAO); // seeing as we only have a single VAO there's no need to bind it every time, but we'll do so to keep things a bit more organized
         glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 
@@ -229,6 +233,15 @@ void processInput(GLFWwindow* window)
     if (glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS) { // Pressing DOWN key
             mixValue = mixValue - 0.0009;
             mixValue = mixValue < 0 ? 0 : mixValue;
+    }
+
+    if (glfwGetKey(window, GLFW_KEY_LEFT) == GLFW_PRESS) { // Pressing LEFT key
+        scaleValue = scaleValue - 0.001;
+        
+    }
+
+    if (glfwGetKey(window, GLFW_KEY_RIGHT) == GLFW_PRESS) { // Pressing DOWN key
+        scaleValue = scaleValue + 0.001;
     }
 
 
