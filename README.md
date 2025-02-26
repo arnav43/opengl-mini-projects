@@ -10,6 +10,7 @@ This is a collection of my **mini projects** that I built while learning **OpenG
 | 🚀 Project | ✨ Concept Learned |
 |------------|------------------|
 | 🟢 **Spiderman Project** | Textures, Uniforms |
+| 🔥 **Spiderman Project 2** | Keyboard Controls, Transparency Control, Uniform |
 
 
 
