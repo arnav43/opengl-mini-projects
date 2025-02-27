@@ -11,6 +11,7 @@ This is a collection of my **mini projects** that I built while learning **OpenG
 |------------|------------------|
 | 🟢 **Spiderman Project** | Textures, Uniforms |
 | 🔥 **Spiderman Project 2** | Keyboard Controls, Transparency Control, Uniform |
+| 🥇 **Spiderman Project 3** | Transformations, Time Control, Containers |
 
 
 
