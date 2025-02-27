@@ -13,6 +13,7 @@ This is a collection of my **mini projects** that I built while learning **OpenG
 | 🔥 **Spiderman Project 2** | Keyboard Controls, Transparency Control, Uniform |
 | 🥇 **Spiderman Project 3** | Transformations, Time Control, Containers |
 | ☀️ **Spiderman Cube** | 3D Objects, Model/View Matrix, Rendering |
+| 🐇 **Spiderman Cube-2** | Multiple Objects, Ortho/Perspective |
 
 
 
