@@ -1,7 +1,9 @@
 # 🚀 OpenGL Learning: Mini Projects 🎮✨  
 
+Hi, I am Arnav Sinha, a Computer Science UG student studying at VIT Vellore.
+
 👋 **Welcome to my OpenGL learning repo!**  
-This is a collection of my **mini projects** that I built while learning **OpenGL, computer graphics, and rendering techniques**. Each project is a small step in my journey toward mastering real-time graphics! 🎨🖥️  
+I built This collection of my **mini projects** while learning **OpenGL, computer graphics, and rendering techniques**. Each project is a small step in my journey toward mastering real-time graphics! 🎨🖥️  
 
 ---
 
