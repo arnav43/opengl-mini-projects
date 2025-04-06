@@ -1,5 +1,7 @@
 // added camera movement wasd- did camera section on learnopengl.com
 // pretty fun, thinking of making my own 3d game? lets see
+// learnopengl.com -> setup should be self explainatory if you follow the setup here, otherwise just try to replicate if you dont have the wrappers/libaries here
+// have fun
 
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
