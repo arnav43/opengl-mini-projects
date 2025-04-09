@@ -17,5 +17,6 @@ I built This collection of my **mini projects** while learning **OpenGL, compute
 | ☀️ **Spiderman Cube** | 3D Objects, Model/View Matrix, Rendering |
 | 🐇 **Spiderman Cube-2** | Multiple Objects, Ortho/Perspective |
 | 🐇 **Camera Spiderman** | Camera, Key Functions, Movement |
+| 🐇 **Basic Lighting** | Phong Lighting- Diffuse, Specular, Ambient |
 
 
