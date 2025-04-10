@@ -1,6 +1,3 @@
-// tutorial followed by learnopengl.com, all the extra headers and wrappers/libraries can be found online/ use GPT to generate if you want to replicate
-// that aside code is pretty self explainatory, seperated into sections, its fun
-
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include "shader_s.h"
@@ -35,7 +32,7 @@ bool firstMouse = true;
 float deltaTime = 0.0f; // time between current frame and last frame
 float lastFrame = 0.0f;
 
-// Lighting Settings
+// lighting
 glm::vec3 lightPos(1.2f, 1.0f, 2.0f);
 
 //--------------------------------------------------------------------------------------------------
@@ -75,8 +72,8 @@ int main()
 
     //--------------------------------------------------------------------------------------------------
     // building and compiling our shaders
-    Shader ourCube("3.3.shader.vs", "3.3.shader.fs");
-    Shader ourLight("1.light_cube.vs", "1.light_cube.fs");
+    Shader ourCube("3.3.shader.vert", "3.3.shader.frag");
+    Shader ourLight("1.light_cube.vert", "1.light_cube.frag");
 
     //--------------------------------------------------------------------------------------------------
     // Vertex data for a cube
@@ -156,10 +153,8 @@ int main()
     glEnableVertexAttribArray(0);
 
     //--------------------------------------------------------------------------------------------------
-    // Sending light position via uniform- outside loop since doesnt change every frame
-    int lightPosLocation = glGetUniformLocation(ourCube.ID, "lightPos");
-    ourCube.use();
-    glUniform3f(lightPosLocation, lightPos.x, lightPos.y, lightPos.z);
+
+    //..
 
     //--------------------------------------------------------------------------------------------------
     // Render loop
@@ -171,41 +166,57 @@ int main()
         deltaTime = currentFrame - lastFrame;
         lastFrame = currentFrame;
 
-        //-- Experimentation
-        //...
-
-        //--
-
         //--------------------------------------------------------------------------------------------------
         // Input handling
+        float timeValue = glfwGetTime();
+        float rBackground = sin(timeValue * 0.10);
+        float gBackground = 0.50f;
+        float bBackground = cos(timeValue * 0.10);
         processInput(window);
-        float time = sin(glfwGetTime() * 1.2) * 0.25;
-        glClearColor(time, 0.1f, time, 1.0f);
+        glClearColor(rBackground * 0.25, gBackground * 0.25, bBackground * 0.25, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
         //--------------------------------------------------------------------------------------------------
-        // using our shaders, setting uniforms
+        // Setting properties through uniforms
+
         ourCube.use();
-        int objColorLocation = glGetUniformLocation(ourCube.ID, "objectColor");
-        glUniform3f(objColorLocation, 1.0f, 0.5f, 0.31f); // color of the object
+        glUniform3f(glGetUniformLocation(ourCube.ID, "light.position"), lightPos.x, lightPos.y, lightPos.z);
+        glUniform3f(glGetUniformLocation(ourCube.ID, "viewPos"), camera.Position.x, camera.Position.y, camera.Position.z); // camera position
 
-        int lightLocation = glGetUniformLocation(ourCube.ID, "lightColor");
-        glUniform3f(lightLocation, 1.0f, 1.0f, 1.0f); // color of the light
+        // light properties
+        glm::vec3 lightColor;
+        lightColor.x = static_cast<float>(sin(timeValue * 2.0f));
+        lightColor.y = static_cast<float>(sin(timeValue * 0.7f));
+        lightColor.z = static_cast<float>(sin(timeValue * 1.3f));
 
-        int viewPosLocation = glGetUniformLocation(ourCube.ID, "viewPos");
-        glUniform3f(viewPosLocation, camera.Position.x, camera.Position.y, camera.Position.z); // camera position
+        glm::vec3 diffuseColor = lightColor * glm::vec3(0.5f);   // decrease the influence
+        glm::vec3 ambientColor = diffuseColor * glm::vec3(0.2f); // low influence
+
+        glUniform3f(glGetUniformLocation(ourCube.ID, "light.ambient"), ambientColor.x, ambientColor.y, ambientColor.z);
+        glUniform3f(glGetUniformLocation(ourCube.ID, "light.diffuse"), diffuseColor.x, diffuseColor.y, diffuseColor.z);
+        glUniform3f(glGetUniformLocation(ourCube.ID, "light.specular"), 1.0f, 1.0f, 1.0f);
+
+        // material properties
+        glUniform3f(glGetUniformLocation(ourCube.ID, "material.ambient"), 1.0f, 1.0f, 1.0f); // object color basically these 2
+        glUniform3f(glGetUniformLocation(ourCube.ID, "material.diffuse"), 1.0f, 1.0f, 1.0f);
+        glUniform3f(glGetUniformLocation(ourCube.ID, "material.specular"), 0.5f, 0.5f, 0.5f);
+        glUniform1f(glGetUniformLocation(ourCube.ID, "material.shininess"), 128.0f);
+
+        // sending light source color to light's fragment shader
+        ourLight.use();
+        glUniform3f(glGetUniformLocation(ourLight.ID, "lightSourceColor"), lightColor.x, lightColor.y, lightColor.z);
 
         //--------------------------------------------------------------------------------------------------
         // 3D Cube Object
         glm::mat4 model = glm::mat4(1.0f); // intitalizing to identity matrix
         model = glm::rotate(model, glm::radians(-55.0f), glm::vec3(1.0f, 0.0f, 0.0f));
-        // model = glm::rotate(model, (float)glfwGetTime(), glm::vec3(0.5f, 1.0f, 0.0f));
 
         glm::mat4 view = camera.GetViewMatrix();
 
         glm::mat4 projection = glm::mat4(1.0f);
         projection = glm::perspective(glm::radians(camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
 
+        ourCube.use();
         int model_location = glGetUniformLocation(ourCube.ID, "model"); // sending these to shaders via uniform
         glUniformMatrix4fv(model_location, 1, GL_FALSE, glm::value_ptr(model));
 
@@ -218,7 +229,7 @@ int main()
         // rendering the cube
         glBindVertexArray(VAO);
         glDrawArrays(GL_TRIANGLES, 0, 36);
-        glBindVertexArray(0); // Unbind after use (optional but good practice)
+        glBindVertexArray(0); // Unbind after use (optional but good practice
 
         //--------------------------------------------------------------------------------------------------
         // Light Source Object
