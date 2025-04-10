@@ -1,7 +1,4 @@
 ## Check this out -> 
 
-![image](https://github.com/user-attachments/assets/d4b1a10d-ae02-4f46-a4ce-d01a2b83245b)
+![image](https://github.com/user-attachments/assets/aa3f2d9a-d07d-4199-a1e9-a7081264b70c)
 
-### Can add orbiting light effect with this part of the code, have fun!
-
-![image](https://github.com/user-attachments/assets/91a65da7-a3bf-47b8-8946-9017d14367c3)
