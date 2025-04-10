@@ -15,8 +15,9 @@ I built This collection of my **mini projects** while learning **OpenGL, compute
 | 🔥 **Spiderman Project 2** | Keyboard Controls, Transparency Control, Uniform |
 | 🥇 **Spiderman Project 3** | Transformations, Time Control, Containers |
 | ☀️ **Spiderman Cube** | 3D Objects, Model/View Matrix, Rendering |
-| 🐇 **Spiderman Cube-2** | Multiple Objects, Ortho/Perspective |
-| 🐇 **Camera Spiderman** | Camera, Key Functions, Movement |
-| 🐇 **Basic Lighting** | Phong Lighting- Diffuse, Specular, Ambient |
+| 🐇 **Spiderman Cube-2** | Multiple Objects, Orthos/Perspective |
+| 👾 **Camera Spiderman** | Camera, Key Functions, Movement |
+| 🛜 **Basic Lighting** | Phong Lighting- Diffuse, Specular, Ambient |
+| 🎨 **Basic Lighting-2** | Objects, Changing Colors, Modular |
 
 
