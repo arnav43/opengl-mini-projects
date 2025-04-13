@@ -287,12 +287,6 @@ int main()
         glUniform3f(glGetUniformLocation(ourCube.ID, "light.diffuse"), diffuseColor.x, diffuseColor.y, diffuseColor.z);
         glUniform3f(glGetUniformLocation(ourCube.ID, "light.specular"), 1.0f, 1.0f, 1.0f);
 
-        // material properties
-        glUniform3f(glGetUniformLocation(ourCube.ID, "material.ambient"), 0.67f, 0.56f, 0.00f); // object color basically these 2
-        glUniform3f(glGetUniformLocation(ourCube.ID, "material.diffuse"), 0.67f, 0.56f, 0.00f);
-        glUniform3f(glGetUniformLocation(ourCube.ID, "material.specular"), 0.7f, 0.7f, 0.7f);
-        glUniform1f(glGetUniformLocation(ourCube.ID, "material.shininess"), 128.0f);
-
         // sending light source color to light's fragment shader
         ourLight.use();
 		glUniform3f(glGetUniformLocation(ourLight.ID, "lightSourceColor"), lightColor.x, lightColor.y, lightColor.z);
