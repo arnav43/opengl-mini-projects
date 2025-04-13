@@ -19,6 +19,6 @@ I built this collection of my **mini projects** while learning **OpenGL, compute
 | 👾 **Camera Spiderman** | Camera, Key Functions, Movement |
 | 🛜 **Basic Lighting** | Phong Lighting- Diffuse, Specular, Ambient |
 | 🎨 **Basic Lighting-2** | Objects, Changing Colors, Modular |
-| 🤖 **Basic Lighting-3** | Diffuse Map, Specular Map, Emission Map (See Learnopengl.com) |
+| 🤖 **Basic Lighting-3** | Diffuse Map, Specular Map, Emission Map (See Learnopengl.com), Directional, Point, and Spotlight Lighting |
 
 
